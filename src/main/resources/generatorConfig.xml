@@ -43,12 +43,16 @@
 	<!-- 映射配置 -->
     <!--<table tableName="test" domainObjectName="Test" ></table>-->
     <!--<table tableName="cms_category" domainObjectName="Category" ></table>-->
-    <table tableName="cms_article" domainObjectName="Article" >
-      <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <columnOverride column="source" javaType="java.lang.String" jdbcType="VARCHAR" />
-    </table>
+    <!--<table tableName="cms_article" domainObjectName="Article" >-->
+      <!--<columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+      <!--<columnOverride column="source" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+    <!--</table>-->
     <!--<table tableName="cms_comment" domainObjectName="Comment" ></table>-->
-
+    <table tableName="base_user" domainObjectName="BaseUser" ></table>
+    <table tableName="base_role" domainObjectName="BaseRole" ></table>
+    <table tableName="base_user_role" domainObjectName="BaseUserRole" ></table>
+    <table tableName="base_privilege" domainObjectName="BasePrivilege" ></table>
+    <table tableName="base_role_privilege" domainObjectName="BaseRolePrivilege" ></table>
 	<!--
 	 mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 	-->
