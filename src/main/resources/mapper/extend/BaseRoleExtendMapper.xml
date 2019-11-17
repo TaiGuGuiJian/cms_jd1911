@@ -8,4 +8,12 @@
     AND ur.user_id = #{id,jdbcType=BIGINT}
   </select>
 
+  <select id="selectAll" resultMap="BaseRoleExtendResultMap">
+    SELECT *
+    FROM base_role
+  </select>
+
+  <resultMap id="BaseRoleExtendResultMap" type="com.briup.apps.cms.bean.extend.BaseRoleExtend">
+    <collection property="privileges" column="id" select="com.briup.apps.cms.dao.extend.BasePrivilegeExtendMapper.selectByRoleId"></collection>
+  </resultMap>
 </mapper>

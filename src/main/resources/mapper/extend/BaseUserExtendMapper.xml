@@ -7,6 +7,11 @@
     WHERE id = #{id,jdbcType=BIGINT}
   </select>
 
+  <select id="selectAll" resultMap="BaseUserExtendResultMap">
+    SELECT *
+    FROM base_user
+  </select>
+
   <resultMap
           id="BaseUserExtendResultMap"
           type="com.briup.apps.cms.bean.extend.BaseUserExtend"
