@@ -3,6 +3,7 @@ package com.briup.apps.cms.service;
 import com.briup.apps.cms.bean.BaseUser;
 import com.briup.apps.cms.bean.extend.BaseUserExtend;
 import com.briup.apps.cms.utils.CustomerException;
+import com.briup.apps.cms.vm.UserVM;
 
 import java.util.List;
 
@@ -14,6 +15,16 @@ import java.util.List;
  **/
 
 public interface IBaseUserService {
+    
+    /** 
+     * @Description: 登录
+     * @Param: [userVM] 
+     * @return: void 
+     * @Author: charles 
+     * @Date: 2019-11-18 
+     */
+    BaseUser login(UserVM userVM) throws CustomerException;
+    
     /**
      * @Description: 通过id查询
      * @Param: [id]

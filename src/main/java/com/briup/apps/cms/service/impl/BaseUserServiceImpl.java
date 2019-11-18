@@ -10,6 +10,7 @@ import com.briup.apps.cms.dao.BaseUserRoleMapper;
 import com.briup.apps.cms.dao.extend.BaseUserExtendMapper;
 import com.briup.apps.cms.service.IBaseUserService;
 import com.briup.apps.cms.utils.CustomerException;
+import com.briup.apps.cms.vm.UserVM;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,6 +33,22 @@ public class BaseUserServiceImpl implements IBaseUserService {
     private BaseUserMapper baseUserMapper;
     @Resource
     private BaseUserRoleMapper baseUserRoleMapper;
+
+    @Override
+    public BaseUser login(UserVM userVM) throws CustomerException {
+        BaseUserExample example = new BaseUserExample();
+        example.createCriteria().andUsernameEqualTo(userVM.getUsername());
+        List<BaseUser> list = baseUserMapper.selectByExample(example);
+        if(list.size()<=0){
+            throw new CustomerException("该用户不存在");
+        }
+        BaseUser user = list.get(0);
+        if(!user.getPassword().equals(userVM.getPassword())){
+            throw new CustomerException("密码不匹配");
+        }
+        return user;
+
+    }
 
     @Override
     public BaseUserExtend findById(long id) {

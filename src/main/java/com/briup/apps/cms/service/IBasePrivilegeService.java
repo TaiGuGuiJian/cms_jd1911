@@ -35,6 +35,22 @@ public interface IBasePrivilegeService {
      */ 
     void saveOrUpdate(BasePrivilege privilege) throws CustomerException;
 
+    /** 
+     * @Description: 查询权限树 
+     * @Param: [] 
+     * @return: java.util.List<com.briup.apps.cms.vm.PrivilegeTree> 
+     * @Author: charles 
+     * @Date: 2019-11-18 
+     */ 
     List<PrivilegeTree> findPrivilegeTree();
+    
+    /** 
+     * @Description: 查询用户所有权限 
+     * @Param: [id] 
+     * @return: java.util.List<com.briup.apps.cms.bean.BasePrivilege> 
+     * @Author: charles 
+     * @Date: 2019-11-18 
+     */ 
+    List<BasePrivilege> findByUserId(long id);
 
 }

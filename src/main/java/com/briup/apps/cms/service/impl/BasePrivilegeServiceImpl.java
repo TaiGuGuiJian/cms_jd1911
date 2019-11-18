@@ -26,6 +26,11 @@ public class BasePrivilegeServiceImpl implements IBasePrivilegeService {
     private BasePrivilegeExtendMapper basePrivilegeExtendMapper;
 
     @Override
+    public List<BasePrivilege> findByUserId(long id) {
+        return basePrivilegeExtendMapper.selectByUserId(id);
+    }
+
+    @Override
     public List<BasePrivilege> findAll() {
         return basePrivilegeMapper.selectByExample(new BasePrivilegeExample());
     }
