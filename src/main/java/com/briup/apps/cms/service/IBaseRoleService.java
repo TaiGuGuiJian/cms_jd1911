@@ -7,6 +7,16 @@ import com.briup.apps.cms.utils.CustomerException;
 import java.util.List;
 
 public interface IBaseRoleService {
+    
+    /** 
+     * @Description: 授权 
+     * @Param: [roleId, privilegeIds] 
+     * @return: void 
+     * @Author: charles 
+     * @Date: 2019-11-18 
+     */ 
+    void authorization(long roleId,List<Long> privilegeIds);
+    
     /** 
      * @Description: 查询所有角色 
      * @Param: [] 

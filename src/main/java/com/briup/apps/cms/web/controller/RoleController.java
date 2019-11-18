@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -57,6 +59,14 @@ public class RoleController {
     public Message saveOrUpdate(BaseRole role){
         baseRoleService.saveOrUpdate(role);
         return MessageUtil.success("更新成功");
+    }
+
+    @ApiOperation(value = "为角色授权")
+    @PostMapping(value = "authorization")
+    public Message authorization(long id,Long[] privileges){
+        List<Long> ids = Arrays.asList(privileges);
+        baseRoleService.authorization(id,ids);
+        return MessageUtil.success("授权成功");
     }
 
 }

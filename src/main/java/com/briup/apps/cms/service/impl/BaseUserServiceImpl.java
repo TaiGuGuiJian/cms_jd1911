@@ -109,7 +109,7 @@ public class BaseUserServiceImpl implements IBaseUserService {
             }
         }
         // [1,2,3] -> [1,2,3,4]   删除 3,4  => [1,2]
-        // 一次判断老的角色是否存在于roles中，如果不存在则删除
+        // 依次判断老的角色是否存在于roles中，如果不存在则删除
         for(BaseUserRole userRole : list){
             if(!roles.contains(userRole.getRoleId())){
                 BaseUserRoleExample example1 = new BaseUserRoleExample();
