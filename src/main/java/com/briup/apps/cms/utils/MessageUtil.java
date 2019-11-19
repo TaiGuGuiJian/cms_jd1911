@@ -48,4 +48,36 @@ public class MessageUtil {
         return message;
     }
 
+    /**
+     * @Description: 权限不足
+     * @Param: []
+     * @return: com.briup.apps.cms.utils.Message
+     * @Author: charles
+     * @Date: 2019-11-19
+     */
+    public static Message forbidden(String msg){
+        Message message = new Message();
+        message.setStatus(403);
+        message.setMessage(msg);
+        message.setTimestamp(new Date().getTime());
+        return message;
+    }
+
+    /**
+     * @Description: 未授权
+     * @Param: []
+     * @return: com.briup.apps.cms.utils.Message
+     * @Author: charles
+     * @Date: 2019-11-19
+     */
+    public static Message unAuthorized(String msg){
+        Message message = new Message();
+        message.setStatus(401);
+        message.setMessage(msg);
+        message.setTimestamp(new Date().getTime());
+        return message;
+    }
+
+
+
 }
