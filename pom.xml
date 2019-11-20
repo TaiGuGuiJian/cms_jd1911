@@ -35,6 +35,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!--mysql驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
