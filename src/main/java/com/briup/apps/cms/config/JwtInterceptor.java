@@ -41,8 +41,6 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         JwtTokenUtil.parseJWT(token, JwtTokenUtil.base64Secret);
         // 验证权限，通过token获取用户id，通过用户id获取权限，这里可以使用redis将用户信息维护在缓存中，减少与数据库交互次数
         long id = Long.parseLong(JwtTokenUtil.getUserId(token,JwtTokenUtil.base64Secret));
-
-
         this.auth(id,request.getServletPath());
 
         return true;
@@ -50,6 +48,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
 
     // 判断权限
     private boolean auth(long userId,String path){
+        // article/findAll
         // 查询出该用户的所有权限
         List<BasePrivilege> privileges = basePrivilegeService.findByUserId(userId);
         // 匹配

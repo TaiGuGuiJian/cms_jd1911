@@ -3,6 +3,7 @@ package com.briup.apps.cms.web.controller;
 import com.briup.apps.cms.bean.Article;
 import com.briup.apps.cms.bean.extend.ArticleExtend;
 import com.briup.apps.cms.service.IArticleService;
+import com.briup.apps.cms.utils.ExcelUtils;
 import com.briup.apps.cms.utils.Message;
 import com.briup.apps.cms.utils.MessageUtil;
 import io.swagger.annotations.ApiImplicitParam;
@@ -12,8 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @program: cms_jd1911
@@ -27,6 +32,28 @@ import java.util.List;
 public class ArticleController {
     @Autowired
     private IArticleService articleService;
+
+    @ApiOperation(value="将文章导入到Excel中",notes="注意！测试的时候请将地址粘贴到浏览器地址栏测试",produces="application/octet-stream")
+    @GetMapping("download")
+    public void download(HttpServletResponse response) throws Exception{
+        // 查询出所有文章信息
+        String excelName = "article_list";
+        String[] headList = new String[]{"编号","标题","内容"};
+        String[] fieldList = new String[]{"id","title","content"};
+        List<Map<String, Object>> dataList = new ArrayList<>();
+        List<Article> list =articleService.findAll();
+        for(Article a : list){
+            Map<String, Object> map = new HashMap<>();
+            map.put("id",a.getId());
+            map.put("title",a.getTitle());
+            map.put("content",a.getContent());
+            dataList.add(map);
+        }
+
+        //调用工具类导出excel
+        ExcelUtils.createExcel(response,excelName,headList,fieldList,dataList);
+
+    }
 
     @ApiOperation(value = "查询所有文章")
     @GetMapping("findAll")

@@ -36,7 +36,7 @@ public class JwtTokenUtil {
     public static final String base64Secret ="MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=";
     private static final String clientId = "098f6bcd4621d373cade4e832627b4f6";
     private static final String name = "restapiuser";
-    private static final int expiresSecond = 1728000000;
+    private static final int expiresSecond = 172800000;
     /**
      * 解析jwt
      * @param jsonWebToken
