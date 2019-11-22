@@ -26,7 +26,7 @@ public class WebConfig implements WebMvcConfigurer {
 				.addPathPatterns("/**")
 				.excludePathPatterns(
 						"/swagger-resources/**","/v2/**","/swagger-ui.html","/webjars/**",
-						"/user/login","/user/logout","/article/download");
+						"/user/login","/user/logout","/article/download","/privilege/findPrivilegeTree");
 	}
 
 	@Override
