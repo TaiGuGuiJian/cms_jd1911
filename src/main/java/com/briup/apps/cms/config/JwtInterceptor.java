@@ -54,6 +54,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
         List<BasePrivilege> privileges = basePrivilegeService.findByUserId(userId);
         // 匹配
         for(BasePrivilege p : privileges){
+            System.out.println(p.getRoute()+"="+path);
             if(p.getRoute().matches(path)){
                 return true;
             }

@@ -13,4 +13,6 @@ public interface BasePrivilegeExtendMapper {
     List<BasePrivilege> selectByRoleId(long id);
 
     List<BasePrivilege> selectByUserId(long id);
+
+    List<BasePrivilege> selectMenuByUserId(long id);
 }

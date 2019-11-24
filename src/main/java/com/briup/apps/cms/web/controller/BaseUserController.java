@@ -1,7 +1,9 @@
 package com.briup.apps.cms.web.controller;
 
+import com.briup.apps.cms.bean.BasePrivilege;
 import com.briup.apps.cms.bean.BaseUser;
 import com.briup.apps.cms.bean.extend.BaseUserExtend;
+import com.briup.apps.cms.service.IBasePrivilegeService;
 import com.briup.apps.cms.service.IBaseUserService;
 import com.briup.apps.cms.utils.Message;
 import com.briup.apps.cms.utils.MessageUtil;
@@ -30,6 +32,15 @@ import java.util.Map;
 public class BaseUserController {
     @Autowired
     private IBaseUserService baseUserService;
+    @Autowired
+    private IBasePrivilegeService basePrivilegeService;
+
+    @ApiOperation(value = "通过ID查询权限信息")
+    @GetMapping("findMenuByUserId")
+    public Message findMenuByUserId(long id){
+        List<BasePrivilege> list =  basePrivilegeService.findMenuByUserId(id);
+        return MessageUtil.success(list);
+    }
 
     @ApiOperation(value = "查询所有")
     @GetMapping(value = "findAll")

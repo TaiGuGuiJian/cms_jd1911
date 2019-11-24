@@ -59,4 +59,9 @@ public class BasePrivilegeServiceImpl implements IBasePrivilegeService {
     public List<PrivilegeTree> findPrivilegeTree() {
         return basePrivilegeExtendMapper.selectAll();
     }
+
+    @Override
+    public List<BasePrivilege> findMenuByUserId(long id) {
+        return basePrivilegeExtendMapper.selectMenuByUserId(id);
+    }
 }

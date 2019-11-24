@@ -1,7 +1,9 @@
 package com.briup.apps.cms.web.controller;
 
+import com.briup.apps.cms.bean.BasePrivilege;
 import com.briup.apps.cms.bean.BaseUser;
 import com.briup.apps.cms.bean.extend.BaseUserExtend;
+import com.briup.apps.cms.service.IBasePrivilegeService;
 import com.briup.apps.cms.service.IBaseUserService;
 import com.briup.apps.cms.utils.JwtTokenUtil;
 import com.briup.apps.cms.utils.Message;
@@ -13,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**

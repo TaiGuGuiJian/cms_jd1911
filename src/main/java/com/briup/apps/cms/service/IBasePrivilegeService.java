@@ -53,4 +53,13 @@ public interface IBasePrivilegeService {
      */ 
     List<BasePrivilege> findByUserId(long id);
 
+    /**
+     * @Description: 查询用户所有菜单
+     * @Param: [id]
+     * @return: java.util.List<com.briup.apps.cms.bean.BasePrivilege>
+     * @Author: charles
+     * @Date: 2019-11-18
+     */
+    List<BasePrivilege> findMenuByUserId(long id);
+
 }
